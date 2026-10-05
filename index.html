@@ -1,0 +1,1450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0">
+
+<meta name="theme-color" content="#ed7fac">
+
+<title>A Little Something ♡</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    color: #63324b;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,255,255,.9) 0,
+            rgba(255,255,255,0) 27%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(255,151,192,.55) 0,
+            rgba(255,151,192,0) 35%
+        ),
+        linear-gradient(
+            135deg,
+            #fff0f7 0%,
+            #ffd6e7 45%,
+            #f5a7c9 100%
+        );
+}
+
+
+/* =========================================================
+   FLOATING DECORATION
+========================================================= */
+
+.sky {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+
+    bottom: -50px;
+
+    color: rgba(255,255,255,.72);
+
+    animation:
+        rise 11s linear infinite;
+}
+
+.particle:nth-child(1) {
+    left: 5%;
+    font-size: 17px;
+}
+
+.particle:nth-child(2) {
+    left: 15%;
+    font-size: 13px;
+    animation-delay: 3s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(3) {
+    left: 27%;
+    font-size: 20px;
+    animation-delay: 1s;
+    animation-duration: 13s;
+}
+
+.particle:nth-child(4) {
+    left: 40%;
+    font-size: 14px;
+    animation-delay: 5s;
+    animation-duration: 10s;
+}
+
+.particle:nth-child(5) {
+    left: 54%;
+    font-size: 18px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(6) {
+    left: 68%;
+    font-size: 13px;
+    animation-delay: 4s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(7) {
+    left: 81%;
+    font-size: 19px;
+    animation-delay: 1s;
+    animation-duration: 14s;
+}
+
+.particle:nth-child(8) {
+    left: 94%;
+    font-size: 15px;
+    animation-delay: 6s;
+    animation-duration: 11s;
+}
+
+@keyframes rise {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .75;
+    }
+
+    80% {
+        opacity: .45;
+    }
+
+    100% {
+        transform:
+            translate3d(20px, -115vh, 0)
+            rotate(25deg)
+            scale(1.15);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    position: relative;
+
+    z-index: 1;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding:
+        clamp(18px, 5vh, 55px)
+        14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    width: 100%;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    margin-bottom:
+        clamp(18px, 3vh, 28px);
+
+    transition:
+        opacity .55s ease,
+        transform .55s ease;
+}
+
+.intro.hide {
+    opacity: 0;
+
+    transform:
+        translateY(-15px)
+        scale(.98);
+
+    pointer-events: none;
+}
+
+.eyebrow {
+    margin-bottom: 9px;
+
+    color: #a34b70;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.intro h1 {
+    color: #842d58;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            22px,
+            5vw,
+            39px
+        );
+
+    line-height: 1.22;
+
+    font-weight: 700;
+}
+
+.intro .wise {
+    margin-top: 9px;
+
+    color: #a45b78;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(
+            12px,
+            2.5vw,
+            15px
+        );
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   ENVELOPE STAGE
+========================================================= */
+
+.envelope-stage {
+    width:
+        min(
+            92vw,
+            430px
+        );
+
+    text-align: center;
+
+    transition:
+        opacity .65s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1);
+}
+
+.envelope-stage.hide {
+    opacity: 0;
+
+    transform:
+        translateY(45px)
+        scale(.82);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-button {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1.55 / 1;
+
+    border: 0;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 25px 30px
+            rgba(111,31,67,.18)
+        );
+
+    transition:
+        transform .25s ease;
+}
+
+.envelope-button:hover {
+    transform:
+        translateY(-4px);
+}
+
+.envelope-button:active {
+    transform:
+        translateY(1px)
+        scale(.985);
+}
+
+.envelope-button:focus-visible {
+    outline:
+        3px solid
+        rgba(174,47,103,.55);
+
+    outline-offset: 7px;
+
+    border-radius: 18px;
+}
+
+
+/* =========================================================
+   PAPER INSIDE
+========================================================= */
+
+.paper {
+    position: absolute;
+
+    left: 7%;
+
+    bottom: 9%;
+
+    width: 86%;
+
+    height: 79%;
+
+    z-index: 2;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffefe,
+            #fff5f9
+        );
+
+    box-shadow:
+        0 8px 18px
+        rgba(91,27,56,.14);
+
+    transition:
+        transform .95s cubic-bezier(.2,.8,.2,1);
+
+    overflow: hidden;
+}
+
+
+/* little lines on letter */
+
+.paper::before {
+    content: "";
+
+    position: absolute;
+
+    left: 12%;
+
+    right: 12%;
+
+    top: 28%;
+
+    height: 1px;
+
+    background: #f3d5e2;
+
+    box-shadow:
+        0 15px #f3d5e2,
+        0 30px #f3d5e2;
+}
+
+.paper::after {
+    content: "♡";
+
+    position: absolute;
+
+    top: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #e17a9f;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   ENVELOPE BODY
+========================================================= */
+
+.envelope-body {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 73%;
+
+    z-index: 3;
+
+    overflow: hidden;
+
+    border-radius:
+        0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8a7c6,
+            #df6f9e
+        );
+
+    box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.4);
+}
+
+
+/* left triangular fold */
+
+.envelope-body::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 52%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4a0c0,
+            #dc6b9b
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+/* right triangular fold */
+
+.envelope-body::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 52%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            215deg,
+            #f5a4c3,
+            #da6999
+        );
+
+    clip-path:
+        polygon(
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+/* =========================================================
+   FLAP
+========================================================= */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 66%;
+
+    z-index: 5;
+
+    transform-origin:
+        50% 0%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffc9dd,
+            #ed88b1
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transition:
+        transform
+        .9s
+        cubic-bezier(.2,.8,.2,1);
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(96,27,58,.12)
+        );
+}
+
+
+/* =========================================================
+   SEAL
+========================================================= */
+
+.seal {
+    position: absolute;
+
+    z-index: 7;
+
+    top: 53%;
+
+    left: 50%;
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    color: #fff;
+
+    font-family: Georgia, serif;
+
+    font-size: 29px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f477a7,
+            #c93870
+        );
+
+    border:
+        3px solid
+        rgba(255,255,255,.58);
+
+    box-shadow:
+        0 8px 20px
+        rgba(117,29,67,.25);
+
+    transition:
+        opacity .3s ease,
+        transform .45s ease;
+}
+
+
+/* =========================================================
+   OPENED ENVELOPE
+========================================================= */
+
+.envelope-button.open .flap {
+    transform:
+        rotateX(180deg);
+
+    z-index: 1;
+}
+
+.envelope-button.open .paper {
+    transform:
+        translateY(-105%)
+        scale(1.035);
+
+    z-index: 6;
+}
+
+.envelope-button.open .seal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.45);
+}
+
+
+/* =========================================================
+   TAP LABEL
+========================================================= */
+
+.open-label {
+    margin-top: 19px;
+
+    color: #813252;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    animation:
+        pulseText
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+.open-label span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #a45a77;
+
+    font-size: 12px;
+
+    font-weight: 400;
+}
+
+@keyframes pulseText {
+
+    0%, 100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   FINAL CARD
+========================================================= */
+
+.card {
+    position: relative;
+
+    display: none;
+
+    width: 100%;
+
+    max-width: 620px;
+
+    padding:
+        clamp(28px, 6vw, 52px)
+        clamp(20px, 6vw, 50px);
+
+    overflow: hidden;
+
+    border-radius:
+        clamp(24px, 5vw, 34px);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.83),
+            rgba(255,244,249,.70)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 80px
+        rgba(105,30,65,.20),
+
+        inset 0 1px
+        rgba(255,255,255,.95);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+/* card glow */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    right: -100px;
+
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,130,178,.16);
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    left: -90px;
+
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,188,214,.18);
+}
+
+
+/* =========================================================
+   CARD APPEAR
+========================================================= */
+
+.card.show {
+    display: block;
+
+    animation:
+        revealCard
+        .95s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes revealCard {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(45px)
+            scale(.93)
+            rotateX(5deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
+}
+
+
+/* =========================================================
+   CARD DETAILS
+========================================================= */
+
+.card-symbol {
+    position: relative;
+
+    color: #d74d83;
+
+    font-family: Georgia, serif;
+
+    font-size: 46px;
+
+    margin-bottom: 9px;
+
+    animation:
+        heartBeat
+        2.6s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.09);
+    }
+}
+
+.card h2 {
+    position: relative;
+
+    color: #b23669;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            25px,
+            6vw,
+            36px
+        );
+
+    line-height: 1.2;
+
+    margin-bottom: 21px;
+}
+
+.message {
+    position: relative;
+
+    color: #663d52;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            16px,
+            3.8vw,
+            19px
+        );
+
+    line-height: 1.72;
+}
+
+.message p {
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   SPECIAL WISH
+========================================================= */
+
+.wish {
+    position: relative;
+
+    margin:
+        23px 0;
+
+    padding:
+        19px 17px;
+
+    border-radius: 21px;
+
+    color: #9d2f60;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,224,237,.96),
+            rgba(255,249,252,.94)
+        );
+
+    border:
+        1px solid
+        rgba(222,119,158,.20);
+
+    box-shadow:
+        0 8px 25px
+        rgba(155,51,96,.07);
+
+    font-size:
+        clamp(
+            16px,
+            4vw,
+            20px
+        );
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+    position: relative;
+
+    margin:
+        22px 0;
+
+    color: #d36a95;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   LAST MESSAGE
+========================================================= */
+
+.final {
+    position: relative;
+
+    color: #8b3d60;
+
+    font-size:
+        clamp(
+            15px,
+            3.5vw,
+            18px
+        );
+
+    line-height: 1.65;
+}
+
+.final strong {
+    color: #b83368;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.signature {
+    position: relative;
+
+    margin-top: 21px;
+
+    color: #996079;
+
+    font-size: 13px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   BOTTOM ORNAMENT
+========================================================= */
+
+.ornament {
+    position: relative;
+
+    margin-top: 20px;
+
+    color: #c85885;
+
+    font-size: 16px;
+
+    letter-spacing: 7px;
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .page {
+        padding:
+            17px 10px;
+    }
+
+    .intro {
+        margin-bottom: 17px;
+    }
+
+    .intro h1 {
+        font-size: 22px;
+    }
+
+    .intro .wise {
+        font-size: 12px;
+    }
+
+    .envelope-stage {
+        width: 91vw;
+    }
+
+    .seal {
+        width: 54px;
+        height: 54px;
+        font-size: 24px;
+    }
+
+    .card {
+        padding:
+            25px 17px;
+    }
+
+    .card-symbol {
+        font-size: 39px;
+    }
+
+    .card h2 {
+        font-size: 25px;
+    }
+
+    .message {
+        font-size: 15.5px;
+        line-height: 1.64;
+    }
+
+    .wish {
+        padding:
+            16px 13px;
+
+        font-size: 16px;
+    }
+
+    .signature {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   VERY SHORT SCREEN
+========================================================= */
+
+@media (max-height: 600px) {
+
+    .page {
+        justify-content: flex-start;
+
+        padding-top: 14px;
+    }
+
+    .intro {
+        margin-bottom: 12px;
+    }
+
+    .envelope-stage {
+        width:
+            min(
+                70vw,
+                350px
+            );
+    }
+
+    .open-label {
+        margin-top: 12px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .particle,
+    .open-label,
+    .card-symbol {
+        animation: none;
+    }
+
+    .envelope-button,
+    .flap,
+    .paper,
+    .seal,
+    .intro,
+    .envelope-stage {
+        transition: none;
+    }
+
+    .card.show {
+        animation: none;
+
+        opacity: 1;
+
+        transform: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     FLOATING UNICODE
+======================================================= -->
+
+<div class="sky" aria-hidden="true">
+
+    <span class="particle">♡</span>
+    <span class="particle">✦</span>
+    <span class="particle">♥</span>
+    <span class="particle">✧</span>
+    <span class="particle">♡</span>
+    <span class="particle">✦</span>
+    <span class="particle">♥</span>
+    <span class="particle">♡</span>
+
+</div>
+
+
+<main class="page">
+
+
+    <!-- ===================================================
+         INTRO
+    =================================================== -->
+
+    <header class="intro" id="intro">
+
+        <div class="eyebrow">
+            ✦ A little something ✦
+        </div>
+
+        <h1>
+            I don't know when is Coordinators' Day,
+            so wishing you on a random day.
+        </h1>
+
+        <div class="wise">
+            ~ a wise man
+        </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         ENVELOPE
+    =================================================== -->
+
+    <section
+        class="envelope-stage"
+        id="envelopeStage"
+        aria-label="A little letter">
+
+        <button
+            class="envelope-button"
+            id="envelope"
+            type="button"
+            aria-label="Open the letter">
+
+            <!-- Letter -->
+
+            <div class="paper"></div>
+
+
+            <!-- Envelope body -->
+
+            <div class="envelope-body"></div>
+
+
+            <!-- Envelope flap -->
+
+            <div class="flap"></div>
+
+
+            <!-- Heart seal -->
+
+            <div class="seal">
+                ♡
+            </div>
+
+        </button>
+
+
+        <div class="open-label">
+            Tap to open ♡
+
+            <span>
+                a little something inside
+            </span>
+        </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINAL CARD
+    =================================================== -->
+
+    <section
+        class="card"
+        id="card"
+        aria-live="polite">
+
+        <div class="card-symbol">
+            ♡
+        </div>
+
+
+        <h2>
+            Just a Little Wish
+        </h2>
+
+
+        <div class="message">
+
+            <p>
+                May Allah bless your days
+                with peace, happiness,
+                and countless little reasons
+                to smile. 🌷
+            </p>
+
+
+            <div class="wish">
+
+                🤍 May He make every difficult
+                thing easier, protect your heart,
+                and fill your life with beautiful
+                moments.
+
+            </div>
+
+
+            <p>
+                May your efforts turn into success,
+                your prayers into beautiful answers,
+                and tomorrow bring something
+                wonderful. ✨
+            </p>
+
+
+            <div class="divider">
+                ✦ ♡ ✦
+            </div>
+
+
+            <div class="final">
+
+                May Allah give you
+                <strong>
+                    the best of everything
+                </strong>
+                your heart deserves. 🤲
+
+            </div>
+
+
+            <div class="signature">
+
+                A random day,
+                but a genuine wish. 💗
+
+            </div>
+
+        </div>
+
+
+        <div class="ornament">
+            ♡　✦　♡　✦　♡
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   OPENING
+========================================================= */
+
+(function () {
+
+    var opened = false;
+
+    var envelope =
+        document.getElementById("envelope");
+
+    var envelopeStage =
+        document.getElementById("envelopeStage");
+
+    var intro =
+        document.getElementById("intro");
+
+    var card =
+        document.getElementById("card");
+
+
+    function openLetter() {
+
+        if (opened) {
+            return;
+        }
+
+        opened = true;
+
+
+        /*
+         * First open the envelope.
+         */
+
+        envelope.classList.add("open");
+
+
+        /*
+         * Give the flap and letter
+         * enough time to finish their movement.
+         */
+
+        window.setTimeout(function () {
+
+            envelopeStage.classList.add("hide");
+
+            intro.classList.add("hide");
+
+        }, 950);
+
+
+        /*
+         * Then reveal the actual
+         * greeting card.
+         */
+
+        window.setTimeout(function () {
+
+            card.classList.add("show");
+
+            /*
+             * Move keyboard focus to the
+             * actual card for accessibility.
+             */
+
+            card.setAttribute(
+                "tabindex",
+                "-1"
+            );
+
+            card.focus();
+
+        }, 1200);
+
+    }
+
+
+    /*
+     * A real button means:
+     * mouse click,
+     * touchscreen tap,
+     * Enter,
+     * Space
+     * can all open it.
+     */
+
+    envelope.addEventListener(
+        "click",
+        openLetter
+    );
+
+})();
+
+</script>
+
+</body>
+</html>
+```
